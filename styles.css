@@ -1,0 +1,82 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.hero {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section {
+  padding: 3rem 1rem;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  border: 1px solid rgba(0,0,0,0.125);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.budget-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.total-budget {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #6e8efb;
+}
+
+.itinerary-item {
+  background: #fff;
+  border-left: 4px solid #6e8efb;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.activity-card {
+  cursor: pointer;
+  transition: background 0.2s;
+  height: 100%;
+}
+
+.activity-card.selected {
+  background-color: #d1ecf1;
+  border: 2px solid #0d6efd;
+}
+
+.btn-primary {
+  background-color: #6e8efb;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #5a7bd8;
+}
+
+#itineraryList:empty::before {
+  content: "Your itinerary will appear here after selecting activities";
+  color: #6c757d;
+  font-style: italic;
+}
+
+#budgetItems:empty::before {
+  content: "Your expenses will appear here";
+  color: #6c757d;
+  font-style: italic;
+}
