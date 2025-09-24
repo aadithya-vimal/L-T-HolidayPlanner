@@ -169,6 +169,7 @@ function renderDestinations(dests) {
   });
 }
 
+
 // Render Activities
 function renderActivities(activities) {
   activityCards.innerHTML = activities.map((act, i) => `
@@ -179,13 +180,11 @@ function renderActivities(activities) {
       </div>
     </div>
   `).join('');
-  
   // Activity selection
   document.querySelectorAll('.activity-card').forEach(card => {
     card.addEventListener('click', () => {
       const activity = card.dataset.activity;
       const index = parseInt(card.dataset.index);
-      
       if (selectedActivities.includes(activity)) {
         selectedActivities = selectedActivities.filter(a => a !== activity);
         card.classList.remove('selected');
@@ -193,9 +192,36 @@ function renderActivities(activities) {
         selectedActivities.push(activity);
         card.classList.add('selected');
       }
-      
       updateItinerary();
       updateBudget();
     });
   });
+}
+
+// Render Itinerary
+function updateItinerary() {
+  if (!selectedDestination) {
+    itineraryList.innerHTML = '<div class="alert alert-warning">No destination selected</div>';
+    return;
+  }
+  if (selectedActivities.length === 0) {
+    itineraryList.innerHTML = `<div class="alert alert-info">No activities selected for ${selectedDestination.name}</div>`;
+    return;
+  }
+  itineraryList.innerHTML = selectedActivities.map((act, i) => `
+    <div class="itinerary-item">
+      <strong>Day ${i+1}:</strong> ${act}
+    </div>
+  `).join('');
+}
+
+// Reset Plan
+function resetPlan() {
+  selectedDestination = null;
+  selectedActivities = [];
+  itineraryList.innerHTML = '';
+  activityCards.innerHTML = '';
+  destResults.innerHTML = '';
+  budget = { accommodation: 0, transport: 0, activities: 0 };
+  updateBudget();
 }
