@@ -167,6 +167,7 @@ function renderDestinations(dests) {
       renderActivities(destinations.find(d => d.name === name).activities);
       destResults.innerHTML = `<div class="alert alert-success">Selected: ${name}</div>`;
       updateItinerary();
+      updateBudget();
     });
   });
 }
@@ -198,6 +199,8 @@ function renderActivities(activities) {
       updateBudget();
     });
   });
+  // Always update budget after rendering activities
+  updateBudget();
 
 // Budget Tracker
 function updateBudget() {
