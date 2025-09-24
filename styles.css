@@ -1,10 +1,12 @@
+/* ===== CUSTOM GRADIENTS & DARK THEME WITH HIGH CONTRAST ===== */
 :root {
   --dark-bg: #0a0a0a;
   --charcoal: #121212;
-  --light-gray: #e0e0e0;
-  --gray: #a0a0a0;
+  --light-gray: #ffffff;
+  --gray: #b0b0b0;
   --white: #ffffff;
   --accent-green: #198754; /* Bootstrap success green */
+  --accent-blue: #0d6efd; /* Bootstrap primary blue */
 }
 
 /* Base styles */
@@ -12,9 +14,10 @@ body {
   background-color: var(--dark-bg);
   color: var(--light-gray);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
 }
 
-
+/* Header with CRED-style navigation */
 .cred-header {
   background-color: rgba(18, 18, 18, 0.95);
   position: fixed;
@@ -78,11 +81,20 @@ body {
   padding-top: 120px; /* Account for fixed header */
   padding-bottom: 80px;
   color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.hero h1, .hero p {
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* QR Code container (bottom-right) */
@@ -115,31 +127,36 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* Custom gradient cards */
+/* Custom gradient cards with high contrast */
 .bg-gradient-card {
-  background: linear-gradient(135deg, rgba(33, 37, 41, 0.7) 0%, rgba(22, 26, 30, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(33, 37, 41, 0.8) 0%, rgba(22, 26, 30, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--white);
 }
 
 .bg-gradient-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Form elements */
+/* Form elements - HIGH CONTRAST */
 .form-label {
-  color: var(--light-gray);
+  color: var(--white);
   font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .form-control, .form-select {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--light-gray);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
   transition: all 0.2s;
+  font-weight: 500;
 }
 
 .form-control:focus, .form-select:focus {
@@ -154,24 +171,35 @@ body {
   border-color: var(--accent-green);
 }
 
+.form-check-label {
+  color: var(--white);
+  font-weight: 500;
+}
+
 /* Buttons */
 .btn-success {
   background-color: var(--accent-green);
   border: none;
   font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   transition: all 0.2s;
+  color: var(--dark-bg) !important;
 }
 
 .btn-success:hover {
   background-color: #157347;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(25, 135, 84, 0.4);
+  color: var(--dark-bg) !important;
 }
 
 .btn-outline-danger {
   background: transparent;
   border: 1px solid var(--gray);
   color: var(--gray);
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
   transition: all 0.2s;
 }
 
@@ -183,22 +211,23 @@ body {
 
 /* Activity cards */
 .activity-card {
-  background: linear-gradient(135deg, rgba(33, 37, 41, 0.7) 0%, rgba(22, 26, 30, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(33, 37, 41, 0.8) 0%, rgba(22, 26, 30, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.2s;
   height: 100%;
+  color: var(--white);
 }
 
 .activity-card:hover {
-  background: linear-gradient(135deg, rgba(33, 37, 41, 0.8) 0%, rgba(22, 26, 30, 0.95) 100%);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(33, 37, 41, 0.9) 0%, rgba(22, 26, 30, 0.98) 100%);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .activity-card.selected {
-  background: linear-gradient(135deg, rgba(25, 135, 84, 0.2) 0%, rgba(22, 26, 30, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(25, 135, 84, 0.2) 0%, rgba(22, 26, 30, 0.95) 100%);
   border: 1px solid var(--accent-green);
 }
 
@@ -211,26 +240,30 @@ body {
 
 /* Itinerary & Budget */
 .itinerary-item {
-  background: linear-gradient(135deg, rgba(33, 37, 41, 0.7) 0%, rgba(22, 26, 30, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(33, 37, 41, 0.8) 0%, rgba(22, 26, 30, 0.95) 100%);
   border-left: 3px solid var(--accent-green);
   padding: 1.25rem;
   margin-bottom: 1rem;
   border-radius: 0 8px 8px 0;
+  color: var(--white);
 }
 
 .itinerary-item strong {
   color: var(--white);
+  font-weight: 600;
 }
 
 .budget-item {
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
 }
 
 .budget-item span:first-child {
   color: var(--light-gray);
+  font-weight: 500;
 }
 
 .budget-item span:last-child {
@@ -252,8 +285,9 @@ body {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  color: var(--light-gray);
+  color: var(--white);
   padding: 1rem;
+  font-weight: 500;
 }
 
 .alert-success {
@@ -271,14 +305,20 @@ body {
 }
 
 .maker-card {
-  background: linear-gradient(135deg, rgba(33, 37, 41, 0.7) 0%, rgba(22, 26, 30, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(33, 37, 41, 0.8) 0%, rgba(22, 26, 30, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: transform 0.3s ease;
+  color: var(--white);
 }
 
 .maker-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Ensure text is always visible */
+.text-white, .text-light {
+  color: var(--white) !important;
 }
 
 /* Responsive adjustments */
@@ -295,6 +335,14 @@ body {
   .qr-placeholder {
     width: 60px;
     height: 60px;
+  }
+  
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
   }
 }
 
@@ -315,6 +363,10 @@ body {
   .cred-header .container-fluid {
     padding: 0 15px;
   }
+  
+  .section h2 {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -324,5 +376,9 @@ body {
   
   .btn {
     width: 100%;
+  }
+  
+  .hero h1 {
+    font-size: 2.25rem;
   }
 }
