@@ -20,12 +20,11 @@
           <span class="logo-text">HOLIDAY PLANNER</span>
         </div>
         
-        <!-- Navigation (right-aligned) - Removed "CARD" text -->
+        <!-- Navigation (right-aligned) -->
         <div class="d-flex align-items-center">
           <nav class="cred-nav d-none d-md-block">
             <span class="nav-item">HOLIDAY</span>
             <span class="nav-item">PLANNER</span>
-            <!-- Removed "CARD" item -->
           </nav>
           <button class="hamburger ms-4 d-md-none" id="hamburger">
             <span></span>
@@ -67,11 +66,11 @@
       <div class="row g-3">
         <div class="col-md-6">
           <label for="destInput" class="form-label">Search by Name:</label>
-          <input type="text" id="destInput" class="form-control bg-secondary bg-opacity-25 border-secondary text-light" placeholder="e.g., Bali, Alps, Paris">
+          <input type="text" id="destInput" class="form-control bg-secondary bg-opacity-25 border-secondary text-white" placeholder="e.g., Bali, Alps, Paris">
         </div>
         <div class="col-md-6">
           <label for="interestFilter" class="form-label">Or Filter by Interest:</label>
-          <select id="interestFilter" class="form-select bg-secondary bg-opacity-25 border-secondary text-light">
+          <select id="interestFilter" class="form-select bg-secondary bg-opacity-25 border-secondary text-white">
             <option value="">-- Select Interest --</option>
             <option value="beach">🏖️ Beach</option>
             <option value="mountains">⛰️ Mountains</option>
@@ -91,35 +90,35 @@
       <div class="row">
         <div class="col-md-6 mb-4">
           <div class="card bg-gradient-card p-3 h-100">
-            <h3 class="card-title">Accommodation</h3>
+            <h3 class="card-title text-white">Accommodation</h3>
             <div class="form-check mb-2">
               <input class="form-check-input" type="radio" name="accommodation" id="hotel" value="hotel">
-              <label class="form-check-label text-light" for="hotel">Hotel ($150/night)</label>
+              <label class="form-check-label text-white" for="hotel">Hotel ($150/night)</label>
             </div>
             <div class="form-check mb-2">
               <input class="form-check-input" type="radio" name="accommodation" id="resort" value="resort">
-              <label class="form-check-label text-light" for="resort">Resort ($250/night)</label>
+              <label class="form-check-label text-white" for="resort">Resort ($250/night)</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="accommodation" id="hostel" value="hostel">
-              <label class="form-check-label text-light" for="hostel">Hostel ($50/night)</label>
+              <label class="form-check-label text-white" for="hostel">Hostel ($50/night)</label>
             </div>
           </div>
         </div>
         <div class="col-md-6 mb-4">
           <div class="card bg-gradient-card p-3 h-100">
-            <h3 class="card-title">Transport</h3>
+            <h3 class="card-title text-white">Transport</h3>
             <div class="form-check mb-2">
               <input class="form-check-input" type="radio" name="transport" id="flight" value="flight">
-              <label class="form-check-label text-light" for="flight">Flight ($400)</label>
+              <label class="form-check-label text-white" for="flight">Flight ($400)</label>
             </div>
             <div class="form-check mb-2">
               <input class="form-check-input" type="radio" name="transport" id="train" value="train">
-              <label class="form-check-label text-light" for="train">Train ($200)</label>
+              <label class="form-check-label text-white" for="train">Train ($200)</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="transport" id="car" value="car">
-              <label class="form-check-label text-light" for="car">Rental Car ($300)</label>
+              <label class="form-check-label text-white" for="car">Rental Car ($300)</label>
             </div>
           </div>
         </div>
@@ -148,27 +147,27 @@
       </div>
     </section>
 
-    <!-- Makers Info -->
-    <section class="makers-info py-5 mt-5 border-top border-secondary">
+    <!-- Makers Info - Clean, no box, no heart -->
+    <section class="makers-info py-5 mt-5">
       <div class="text-center">
-        <h3 class="mb-4">Made with ❤️ by</h3>
+        <h3 class="mb-4">Made by</h3>
         <div class="row justify-content-center">
           <div class="col-md-4 mb-3">
-            <div class="maker-card bg-gradient-card p-3 rounded-3">
-              <h5 class="mb-1">Aadithya Vimal</h5>
-              <p class="mb-0 text-muted">2462302</p>
+            <div class="maker-card">
+              <h5 class="mb-1 text-white">Aadithya Vimal</h5>
+              <p class="mb-0 text-success fw-bold">2462302</p>
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="maker-card bg-gradient-card p-3 rounded-3">
-              <h5 class="mb-1">Vadapalli Lakshmi Kalyani Sahithi</h5>
-              <p class="mb-0 text-muted">2462370</p>
+            <div class="maker-card">
+              <h5 class="mb-1 text-white">Vadapalli Lakshmi Kalyani Sahithi</h5>
+              <p class="mb-0 text-success fw-bold">2462370</p>
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="maker-card bg-gradient-card p-3 rounded-3">
-              <h5 class="mb-1">Sacchit Kalara Viju</h5>
-              <p class="mb-0 text-muted">2462356</p>
+            <div class="maker-card">
+              <h5 class="mb-1 text-white">Sacchit Kalara Viju</h5>
+              <p class="mb-0 text-success fw-bold">2462356</p>
             </div>
           </div>
         </div>
