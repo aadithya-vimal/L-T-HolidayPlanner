@@ -19,6 +19,7 @@ const budgetItems = document.getElementById('budgetItems');
 const totalAmount = document.getElementById('totalAmount');
 const resetBtn = document.getElementById('resetBtn');
 const hamburger = document.getElementById('hamburger');
+const downloadBtn = document.getElementById('downloadBtn');
 
 // State
 let selectedDestination = null;
@@ -38,6 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hamburger) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
+    });
+  }
+  
+  // Download button
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', () => {
+      alert('Holiday Planner app would download here!');
     });
   }
 });
@@ -84,10 +92,10 @@ function renderDestinations(dests) {
     <div class="row mt-3">
       ${dests.map(d => `
         <div class="col-md-4 mb-3">
-          <div class="card h-100">
+          <div class="card bg-gradient-card h-100">
             <div class="card-body">
               <h5 class="card-title">${d.name}</h5>
-              <p class="card-text"><small class="text-muted">${d.interest}</small></p>
+              <p class="card-text text-muted">${d.interest}</p>
               <button class="btn btn-sm btn-outline-light select-dest" data-name="${d.name}" data-interest="${d.interest}">
                 Select
               </button>
@@ -114,7 +122,7 @@ function renderDestinations(dests) {
 function renderActivities(activities) {
   activityCards.innerHTML = activities.map((act, i) => `
     <div class="col-md-4">
-      <div class="card activity-card p-3" data-activity="${act}" data-index="${i}">
+      <div class="activity-card" data-activity="${act}" data-index="${i}">
         <h5>${act}</h5>
         <p class="text-muted">Activity ${i+1}</p>
       </div>
@@ -144,7 +152,7 @@ function renderActivities(activities) {
 // Update Itinerary
 function updateItinerary() {
   if (selectedActivities.length === 0) {
-    itineraryList.innerHTML = '';
+    itineraryList.innerHTML = '<p class="text-muted">Your itinerary will appear here after selecting activities</p>';
     return;
   }
   
@@ -203,8 +211,8 @@ function resetPlan() {
   document.querySelectorAll('input[name="transport"]').forEach(r => r.checked = false);
   destResults.innerHTML = '';
   activityCards.innerHTML = '';
-  itineraryList.innerHTML = '';
-  budgetItems.innerHTML = '';
+  itineraryList.innerHTML = '<p class="text-muted">Your itinerary will appear here after selecting activities</p>';
+  budgetItems.innerHTML = '<p class="text-muted">Your expenses will appear here</p>';
   totalAmount.textContent = '0';
   
   // Reset state
