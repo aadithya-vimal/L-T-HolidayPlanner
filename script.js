@@ -18,6 +18,7 @@ const itineraryList = document.getElementById('itineraryList');
 const budgetItems = document.getElementById('budgetItems');
 const totalAmount = document.getElementById('totalAmount');
 const resetBtn = document.getElementById('resetBtn');
+const hamburger = document.getElementById('hamburger');
 
 // State
 let selectedDestination = null;
@@ -32,6 +33,13 @@ let budget = {
 document.addEventListener('DOMContentLoaded', () => {
   renderDestinations(destinations);
   setupEventListeners();
+  
+  // Handle hamburger menu toggle
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+    });
+  }
 });
 
 // Event Listeners
@@ -80,7 +88,7 @@ function renderDestinations(dests) {
             <div class="card-body">
               <h5 class="card-title">${d.name}</h5>
               <p class="card-text"><small class="text-muted">${d.interest}</small></p>
-              <button class="btn btn-sm btn-outline-primary select-dest" data-name="${d.name}" data-interest="${d.interest}">
+              <button class="btn btn-sm btn-outline-light select-dest" data-name="${d.name}" data-interest="${d.interest}">
                 Select
               </button>
             </div>
