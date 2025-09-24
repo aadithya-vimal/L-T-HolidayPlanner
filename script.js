@@ -198,6 +198,39 @@ function renderActivities(activities) {
       updateBudget();
     });
   });
+
+// Budget Tracker
+function updateBudget() {
+  // Accommodation
+  const accRadio = document.querySelector('input[name="accommodation"]:checked');
+  if (accRadio) {
+    if (accRadio.value === 'hotel') budget.accommodation = 150;
+    else if (accRadio.value === 'resort') budget.accommodation = 250;
+    else if (accRadio.value === 'hostel') budget.accommodation = 50;
+    else budget.accommodation = 0;
+  } else {
+    budget.accommodation = 0;
+  }
+  // Transport
+  const transRadio = document.querySelector('input[name="transport"]:checked');
+  if (transRadio) {
+    if (transRadio.value === 'flight') budget.transport = 400;
+    else if (transRadio.value === 'train') budget.transport = 200;
+    else if (transRadio.value === 'car') budget.transport = 300;
+    else budget.transport = 0;
+  } else {
+    budget.transport = 0;
+  }
+  // Activities
+  budget.activities = selectedActivities.length * 100;
+  // Render
+  budgetItems.innerHTML = `
+    <div class="budget-item"><span>Accommodation</span><span>$${budget.accommodation}</span></div>
+    <div class="budget-item"><span>Transport</span><span>$${budget.transport}</span></div>
+    <div class="budget-item"><span>Activities</span><span>$${budget.activities}</span></div>
+  `;
+  totalAmount.textContent = budget.accommodation + budget.transport + budget.activities;
+}
 }
 
 // Render Itinerary
