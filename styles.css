@@ -19,13 +19,19 @@ body {
 
 /* Header with CRED-style navigation */
 .cred-header {
-  background-color: rgba(18, 18, 18, 0.95);
+  background: linear-gradient(90deg, var(--accent-blue) 0%, #1a237e 100%);
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw;
+  min-height: 70px;
   z-index: 1000;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 12px 0 rgba(13,110,253,0.08);
+  display: flex;
+  align-items: center;
+  transition: min-height 0.2s;
 }
 
 .logo-text {
@@ -75,10 +81,11 @@ body {
 }
 
 /* Hero section */
+
 .hero {
   position: relative;
   background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-  padding-top: 120px; /* Account for fixed header */
+  padding-top: 90px; /* Match header min-height + margin */
   padding-bottom: 80px;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
