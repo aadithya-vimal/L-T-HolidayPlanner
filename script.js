@@ -94,8 +94,8 @@ function renderDestinations(dests) {
         <div class="col-md-4 mb-3">
           <div class="card bg-gradient-card h-100">
             <div class="card-body">
-              <h5 class="card-title">${d.name}</h5>
-              <p class="card-text text-muted">${d.interest}</p>
+              <h5 class="card-title text-white">${d.name}</h5>
+              <p class="card-text text-success">${d.interest}</p>
               <button class="btn btn-sm btn-outline-light select-dest" data-name="${d.name}" data-interest="${d.interest}">
                 Select
               </button>
@@ -145,81 +145,3 @@ function renderActivities(activities) {
       
       updateItinerary();
       updateBudget();
-    });
-  });
-}
-
-// Update Itinerary
-function updateItinerary() {
-  if (selectedActivities.length === 0) {
-    itineraryList.innerHTML = '<p class="text-muted">Your itinerary will appear here after selecting activities</p>';
-    return;
-  }
-  
-  itineraryList.innerHTML = selectedActivities.map((act, i) => `
-    <div class="itinerary-item">
-      <strong>Day ${i+1}:</strong> ${act}
-    </div>
-  `).join('');
-}
-
-// Update Budget
-function updateBudget() {
-  // Reset budget
-  budget = { accommodation: 0, transport: 0, activities: 0 };
-  
-  // Accommodation cost
-  const acc = document.querySelector('input[name="accommodation"]:checked');
-  if (acc) {
-    const prices = { hotel: 150, resort: 250, hostel: 50 };
-    budget.accommodation = prices[acc.value] || 0;
-  }
-  
-  // Transport cost
-  const trans = document.querySelector('input[name="transport"]:checked');
-  if (trans) {
-    const prices = { flight: 400, train: 200, car: 300 };
-    budget.transport = prices[trans.value] || 0;
-  }
-  
-  // Activities cost ($30 per activity)
-  budget.activities = selectedActivities.length * 30;
-  
-  // Render budget
-  const items = [];
-  if (budget.accommodation) items.push({ name: 'Accommodation', cost: budget.accommodation });
-  if (budget.transport) items.push({ name: 'Transport', cost: budget.transport });
-  if (budget.activities) items.push({ name: 'Activities', cost: budget.activities });
-  
-  budgetItems.innerHTML = items.map(item => `
-    <div class="budget-item">
-      <span>${item.name}</span>
-      <span>$${item.cost}</span>
-    </div>
-  `).join('');
-  
-  const total = budget.accommodation + budget.transport + budget.activities;
-  totalAmount.textContent = total;
-}
-
-// Reset Plan
-function resetPlan() {
-  // Reset UI
-  destInput.value = '';
-  interestFilter.value = '';
-  document.querySelectorAll('input[name="accommodation"]').forEach(r => r.checked = false);
-  document.querySelectorAll('input[name="transport"]').forEach(r => r.checked = false);
-  destResults.innerHTML = '';
-  activityCards.innerHTML = '';
-  itineraryList.innerHTML = '<p class="text-muted">Your itinerary will appear here after selecting activities</p>';
-  budgetItems.innerHTML = '<p class="text-muted">Your expenses will appear here</p>';
-  totalAmount.textContent = '0';
-  
-  // Reset state
-  selectedDestination = null;
-  selectedActivities = [];
-  budget = { accommodation: 0, transport: 0, activities: 0 };
-  
-  // Re-render all destinations
-  renderDestinations(destinations);
-}
