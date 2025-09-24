@@ -163,8 +163,10 @@ function renderDestinations(dests) {
       const name = e.target.dataset.name;
       const interest = e.target.dataset.interest;
       selectedDestination = { name, interest };
+      selectedActivities = [];
       renderActivities(destinations.find(d => d.name === name).activities);
       destResults.innerHTML = `<div class="alert alert-success">Selected: ${name}</div>`;
+      updateItinerary();
     });
   });
 }

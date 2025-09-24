@@ -85,14 +85,14 @@ body {
 .hero {
   position: relative;
   background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-  padding-top: 120px; /* Increased to prevent cropping */
-  padding-bottom: 80px;
+  padding-top: 140px; /* Further increased to prevent cropping */
+  padding-bottom: 90px;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   letter-spacing: -0.5px;
   margin-top: 0.5rem;
@@ -352,23 +352,20 @@ body {
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
   .hero {
-    padding-top: 100px;
+    padding-top: 110px;
+    padding-bottom: 70px;
   }
-  
   .qr-container {
     bottom: 20px;
     right: 20px;
   }
-  
   .qr-placeholder {
     width: 60px;
     height: 60px;
   }
-  
   .hero h1 {
-    font-size: 2.75rem;
+    font-size: 2.1rem;
   }
-  
   .hero p {
     font-size: 1.1rem;
   }
@@ -376,8 +373,11 @@ body {
 
 @media (max-width: 767.98px) {
   .hero {
-    padding-top: 90px;
-    padding-bottom: 60px;
+    padding-top: 80px;
+    padding-bottom: 50px;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
   }
   
   .qr-container {
