@@ -298,22 +298,35 @@ body {
   border-left: 3px solid #ffc107;
 }
 
-/* Makers Info */
+/* Makers Info - CLEAN, NO BOX, NO HEART */
 .makers-info {
-  background: rgba(18, 18, 18, 0.7);
-  backdrop-filter: blur(10px);
+  background: transparent;
+  padding: 4rem 0;
 }
 
 .maker-card {
-  background: linear-gradient(135deg, rgba(33, 37, 41, 0.8) 0%, rgba(22, 26, 30, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: transform 0.3s ease;
-  color: var(--white);
+  background: transparent;
+  border: none;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
 }
 
 .maker-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.maker-card h5 {
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.maker-card p {
+  color: var(--accent-green);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 /* Ensure text is always visible */
@@ -367,6 +380,10 @@ body {
   .section h2 {
     font-size: 2rem;
   }
+  
+  .makers-info {
+    padding: 3rem 0;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -380,5 +397,9 @@ body {
   
   .hero h1 {
     font-size: 2.25rem;
+  }
+  
+  .maker-card {
+    padding: 1rem;
   }
 }
